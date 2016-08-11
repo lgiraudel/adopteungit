@@ -798,12 +798,28 @@ body:not(.post-template) .post-title {
 }
 
 .post-meta {
-    display: block;
+    display: flex;
+    justify-content:  space-between;
     margin: 1.75rem 0 0 0;
     font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     line-height: 2.2rem;
     color: #9EABB3;
+}
+
+.fork-link {
+    position: relative;
+}
+
+.fork-link::before {
+    content: '';
+    background-image: url(/assets/images/Octicons-mark-github.svg);
+    width: 20px;
+    height: 20px;
+    left: -25px;
+    position: absolute;
+    display: block;
+    background-size: cover;
 }
 
 .author-thumb {

@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Lancement du blog!"
+title:  "Lancement du blog ! Yay \\o/ !"
 date:   2016-08-11 12:00:00 +0200
 categories: blog
 disqus: true
 excerpt_separator: <!--more-->
+filename: 2016-08-11-lancement-du-blog.markdown
 ---
 Ca y est, c'est parti pour le lancement du blog !
 

@@ -24,10 +24,15 @@ post_class: post-template
         <header class="post-header">
             <h1 class="post-title">{{ page.title }}</h1>
             <section class="post-meta">
-                <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date: "%d/%m/%Y" }}</time>
+                <div>
+                    <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date: "%d/%m/%Y" }}</time>
 
-                {% if page.categories.size > 0 %}
-                    {{ page.categories | array_to_sentence_string | prepend: 'dans ' }}
+                    {% if page.categories.size > 0 %}
+                        {{ page.categories | array_to_sentence_string | prepend: 'dans ' }}
+                    {% endif %}
+                </div>
+                {% if page.filename %}
+                    <a href="https://github.com/lgiraudel/adopteungit/blob/gh-pages/_posts/{{ page.filename }}" class="fork-link">Fork me I'm famous</a>
                 {% endif %}
             </section>
         </header>
