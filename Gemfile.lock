@@ -126,6 +126,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-paginate
+  jekyll-seo-tag
 
 RUBY VERSION
    ruby 2.0.0p648
