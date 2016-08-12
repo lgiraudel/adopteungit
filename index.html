@@ -6,7 +6,7 @@ about: 'about.html'
 ---
 
 <header class="main-header {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
-    <nav class="main-nav overlay clearfix">
+    <nav class="main-nav overlay clearfix" role="navigation">
             {% if page.logo %}
                 <a class="blog-logo" href="{{ site.baseurl }}">
                     <img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" />
