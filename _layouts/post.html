@@ -7,11 +7,11 @@ post_class: post-template
 
 <header class="main-header post-head {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
     <nav class="main-nav {% if page.cover %} overlay {% endif %} clearfix">
-        <a class="back-button icon-arrow-left" href="{{ site.baseurl }}">Accueil</a>
-        <a class="subscribe-button icon-feed" href="{{ site.baseurl }}feed.xml">RSS</a>
+        <a class="back-button icon-arrow-left" href="{{ site.baseurl }}/">Accueil</a>
+        <a class="subscribe-button icon-feed" href="{{ site.baseurl }}/feed.xml">RSS</a>
         <h1 class="page-title">
-            <a href="{{ site.baseurl }}">
-                <img src="{{ site.baseurl }}assets/images/adopte-un-git-full.svg" title="{{ site.name }}"/>
+            <a href="{{ site.baseurl }}/">
+                <img src="{{ site.baseurl }}/assets/images/adopte-un-git-full.svg" title="{{ site.name }}"/>
             </a>
         </h1>
     </nav>
@@ -65,7 +65,7 @@ post_class: post-template
             <h5>Archive</h5>
             <ul>
                 {% for post in site.posts %}
-                    <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}</a></li>
+                    <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
                 {% endfor %}
             </ul>
         </section>
@@ -75,7 +75,7 @@ post_class: post-template
             <!-- If we want to display author's name and bio -->
             {% if site.author %}
                 <figure class="author-image">
-                    <a class="img" href="{{ site.baseurl }}" style="background-image: url({{ site.baseurl }}assets/images/347023c.jpg)">
+                    <a class="img" href="{{ site.baseurl }}/" style="background-image: url({{ site.baseurl }}/assets/images/347023c.jpg)">
                     <span class="hidden">{{site.author}}'s Picture</span></a>
                 </figure>
                 <section class="author">

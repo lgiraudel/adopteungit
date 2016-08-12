@@ -8,17 +8,17 @@ about: 'about.html'
 <header class="main-header {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}" role="banner">
     <nav class="main-nav overlay clearfix">
             {% if page.logo %}
-                <a class="blog-logo" href="{{ site.baseurl }}">
-                    <img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" />
+                <a class="blog-logo" href="{{ site.url }}">
+                    <img src="{{ site.baseurl }}/{{ page.logo }}" alt="Blog Logo" />
                 </a>
             {% endif %}
-        <a class="subscribe-button icon-feed" href="{{ site.baseurl }}feed.xml">RSS</a>
+        <a class="subscribe-button icon-feed" href="{{ site.baseurl }}/feed.xml">RSS</a>
     </nav>
     <div class="vertical">
         <div class="main-header-content inner">
             <h1 class="page-title">
-                <a href="{{ site.baseurl }}">
-                    <img src="{{ site.baseurl }}assets/images/adopte-un-git-full.svg" title="{{ site.name }}"/>
+                <a href="{{ site.baseurl }}/">
+                    <img src="{{ site.baseurl }}/assets/images/adopte-un-git-full.svg" title="{{ site.name }}"/>
                 </a>
             </h1>
 
@@ -44,14 +44,14 @@ about: 'about.html'
 
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}</a></h2>
+            <h2 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
         </header>
         <section class="post-excerpt">
-            {{ post.excerpt }} <a class="read-more" href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">&raquo;</a>
+            {{ post.excerpt }} <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">&raquo;</a>
         </section>
         <footer class="post-meta">
             {% if site.author %}
-                <img class="author-thumb" src="{{ site.baseurl }}assets/images/347023c.jpg" alt="Author's profile picture" nopin="nopin" />
+                <img class="author-thumb" src="{{ site.baseurl }}/assets/images/347023c.jpg" alt="Author's profile picture" nopin="nopin" />
                 {{ site.author }}
             {% endif %}
             {% if post.categories.size > 0 %} 
