@@ -1,6 +1,6 @@
 <section class="share">
     <h4>Partagez ce billet</h4>
-    <a class="icon-twitter" href="http://twitter.com/share?text={{page.title | replace: '/','%2F' | replace: '\','%5C'}}&amp;url={{site.domain_name}}{{ page.url }}"
+    <a class="icon-twitter" href="http://twitter.com/share?text={{page.title | cgi_escape}}&amp;url={{site.domain_name}}{{ page.url }}"
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
         <span class="hidden">Twitter</span>
     </a>
