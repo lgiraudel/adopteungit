@@ -54,7 +54,7 @@ about: 'about.html'
             {% if post.categories.size > 0 %} 
                 {{ post.categories | array_to_sentence_string | prepend: 'dans ' }} 
             {% endif %}
-            <time class="post-date" datetime="{{ post.date | date:"%Y-%m-%d" }}">
+            <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
                 {{ post.date | date: "%d/%m/%Y" }}
             </time> 
         </footer>
