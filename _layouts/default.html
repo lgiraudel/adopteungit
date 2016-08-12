@@ -39,7 +39,7 @@
 <body class="{% if page.post_class %}{{page.post_class}}{% else %}home-template{% endif %}">
 
     {{ content }}
-    <footer class="site-footer clearfix">
+    <footer class="site-footer clearfix" role="contentinfo">
       <section class="copyright">
         <a href="{{ site.baseurl }}">{{ site.name }}</a> &copy; 
               {{'now' | date:"%Y"}} &bull; All rights reserved.
