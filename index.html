@@ -50,16 +50,18 @@ about: 'about.html'
             {{ post.excerpt }} <a class="read-more" href="{{ site.baseurl }}{{ post.url }}">&raquo;</a>
         </section>
         <footer class="post-meta">
-            {% if site.author %}
-                <img class="author-thumb" src="{{ site.baseurl }}/assets/images/347023c.jpg" alt="Author's profile picture" nopin="nopin" />
-                {{ site.author }}
-            {% endif %}
-            {% if post.categories.size > 0 %} 
-                {{ post.categories | array_to_sentence_string | prepend: 'dans ' }} 
-            {% endif %}
-            <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-                {{ post.date | date: "%d/%m/%Y" }}
-            </time> 
+            <div>
+                {% if site.author %}
+                    <img class="author-thumb" src="{{ site.baseurl }}/assets/images/347023c.jpg" alt="Author's profile picture" nopin="nopin" />
+                    {{ site.author }}
+                {% endif %}
+                {% if post.categories.size > 0 %} 
+                    {{ post.categories | array_to_sentence_string | prepend: 'dans ' }} 
+                {% endif %}
+                <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%d/%m/%Y" }}
+                </time> 
+            </div>
         </footer>
     </article>
 
