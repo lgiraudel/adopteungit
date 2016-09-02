@@ -25,7 +25,7 @@ Faire des petits commits vous facilitera la vie dans plein de circonstances :
 
 Je ne vais pas rentrer dans le détail de chacun de ces points, certains seront probablement couverts par des articles détaillés sur ce blog. Nous essaierons également de donner des astuces pour faire des petits commits parce que ça n'est pas toujours évident.
 
-### git commit -m "Oups, I did it again"
+### git commit -m "Oops, I did it again"
 La seconde règle est assez universelle dans le monde de la programmation : facilitez la vie des autres (ou de votre futur vous) en mettant de la documentation et des noms explicites. Dans le cas de Git, ça consiste donc à faire des messages de commits précis.
 
 Arrêtez les "Fix bug" ou "Oups, j'avais oublié un truc" dans les messages de commit. Soyez explicites, décrivez le bug que vous avez fixé, la fonctionnalité que vous avez ajouté. Les seuls messages de commit qui peuvent être vagues sont ceux pour des tâches annexes, genre fix d'erreurs checkstyle.
@@ -43,7 +43,7 @@ Si vous faites un commit qui casse le master, plutôt que de faire un second com
 Bien entendu, ça sous-entend qu'il faut bien vérifier avant de pusher vers le repository distant.
 
 ### L'usage de la force
-Utilisez `git push --force` avec parcimonie, à moins de bien maîtrisez Git et d'être certain de ce que vous êtes en train de faire. Un push forcé est le meilleur moyen de vous faire des ennemis soit en écrasant le travail des autres, soit, et c'est encore plus fréquent, en compliquant la re-synchronisation d'une branche pour les autres. On reviendra en détail sur le `--force` dans un article dédié.
+Utilisez `git push --force` avec parcimonie à moins de bien maîtriser Git et d'être certain(e) de ce que vous êtes en train de faire. Un push forcé est le meilleur moyen de vous faire des ennemis soit en écrasant le travail des autres, soit, et c'est encore plus fréquent, en compliquant la re-synchronisation d'une branche pour les autres. On reviendra en détail sur le `--force` dans un article dédié.
 
 ### Prudence est mère de sureté
 Allez, un dernier conseil pour la route : n'hésitez pas à faire des branches temporaires avant une opération potentiellement source de conflit (un rebase ou un merge par exemple). Il vaut mieux créer une branche juste avant plutôt que de galérer à annuler une opération compliquée qui se passe mal et il est toujours possible de la supprimer juste après si tout s'est bien passé.
