@@ -2,7 +2,7 @@
 layout: post
 title:  "Les bonnes pratiques"
 date:   2016-08-16 12:00:00 +0200
-categories: méthodologie
+categories: methodologie
 disqus: true
 #excerpt_separator: <!--more-->
 filename: 2016-08-16-les-bonnes-pratiques.markdown
