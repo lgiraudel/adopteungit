@@ -28,7 +28,7 @@ post_class: post-template
                     <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date: "%d/%m/%Y" }}</time>
 
                     {% if page.categories.size > 0 %}
-                        {{ page.categories | array_to_sentence_string | prepend: 'dans ' }}
+                        {{ page.categories | join: ', ' | prepend: 'dans ' }}
                     {% endif %}
                 </div>
                 {% if page.filename %}

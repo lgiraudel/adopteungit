@@ -56,7 +56,7 @@ about: 'about.html'
                     {{ site.author }}
                 {% endif %}
                 {% if post.categories.size > 0 %} 
-                    {{ post.categories | array_to_sentence_string | prepend: 'dans ' }} 
+                    {{ post.categories | join: ', ' | prepend: 'dans ' }}
                 {% endif %}
                 <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
                     {{ post.date | date: "%d/%m/%Y" }}
