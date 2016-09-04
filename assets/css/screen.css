@@ -1418,6 +1418,10 @@ body:not(.post-template) .post-title {
         letter-spacing: -1px;
     }
 
+    .page-title img {
+        max-width: 90%;
+    }
+
     .page-description {
         font-size: 1.8rem;
         line-height: 1.5em;
