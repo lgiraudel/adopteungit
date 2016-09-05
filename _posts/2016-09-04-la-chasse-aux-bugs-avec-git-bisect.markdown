@@ -191,4 +191,4 @@ Bien sûr, si on *skip* trop souvent, à la fin git peut nous dire qu'il n'est p
 - R) Yep : `git bisect start HEAD@{one month ago} HEAD@{2016-01-01}`
 
 - __Q) La succession des différentes étapes du git bisect est un peu longue, il y a moyen de l'automatiser ?__
-- R) Ouiiiiiii :) On y reviendra sur un article dédié mais le principe consiste à avoir un test qui fait les vérifications pour nous, ce qui va automatiser le choix `good` / `bad.
+- R) Ouiiiiiii :) On y reviendra sur un article dédié mais le principe consiste à avoir un test qui fait les vérifications pour nous, ce qui va automatiser le choix `good` / `bad`.
