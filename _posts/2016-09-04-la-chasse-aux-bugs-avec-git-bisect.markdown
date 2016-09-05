@@ -38,102 +38,102 @@ Je fais ça avec ce petit script Node :
 
 Testons l'appli après ces 100 commits pour voir :
 
-```
+{% highlight bash %}
 node app.js
 > false
-```
+{% endhighlight %}
 
 Ok j'ai mon bug, maintenant je dois choisir l'intervalle sur lequel je vais faire mon git bisect. Je sais que mon application marchait au début et ne marche plus au bout de 100 commits donc on ne va pas s'embêter, on va prendre tout l'intervalle.
 Je lance donc git bisect avec la commande `start` en lui précisant la fin puis le début de l'intervalle (oui c'est pas super logique et c'est comme les prises USB, on essaye toujours 3 fois avant d'y arriver), autrement dit le HEAD et le 100ème commit avant le HEAD :
 
-```
+{% highlight bash %}
 > git bisect start HEAD HEAD~100
 Bisecting: 49 revisions left to test after this (roughly 6 steps)
 [097650fd10877eadb3754ed3170faad5feac7467] Just a random commits
-```
+{% endhighlight %}
 
 git m'annonce que pour trouver mon commit, il va devoir couper l'intervalle en deux 6 fois d'affilé. Il m'annonce également qu'il s'est placé sur le commit *097650fd10877eadb3754ed3170faad5feac7467*, qui doit se situer au milieu de l'intervalle que je lui ai passé.
 
 Je dois alors tester si à cet endroit l'application fonctionnait ou était déjà cassée.
 
-```
+{% highlight bash %}
 > node app.js
 false
-```
+{% endhighlight %}
 
 La valeur est toujours `false` donc c'était déjà cassé lorsque ce commit du milieu a été créé. Du coup je préviens git en lui disant que ce commit du milieu est "mauvais" :
 
-```
+{% highlight bash %}
 > git bisect bad
 Bisecting: 24 revisions left to test after this (roughly 5 steps)
 [f7cc3a58bf2b2407a41870db7e359df0468283f0] Just a random commits
-```
+{% endhighlight %}
 
 Hop, git m'annonce qu'il ne reste plus que 5 étapes avant de trouver le commit ayant engendré le bug. Il a également découpé en deux la première moitiée de notre précédent intervalle et s'est positionné sur le commit du milieu. On re-test l'application sur ce nouveau commit :
 
-```
+{% highlight bash %}
 > node app.js
 false
-```
+{% endhighlight %}
 
 On indique de nouveau à git que ce commit était mauvais et on retest :
 
-```
+{% highlight bash %}
 > git bisect bad
 Bisecting: 12 revisions left to test after this (roughly 4 steps)
 [b69debfd02d4099e5cd009794351800b7ce5bc94] Just a random commit
 
 > node app.js
 false
-```
+{% endhighlight %}
 
 On recommence :
 
-```
+{% highlight bash %}
 > git bisect bad
 Bisecting: 5 revisions left to test after this (roughly 3 steps)
 [67bc83324eda649968ae89e5f643c23cf8ac02d2] Just a random commit
 
 > node app.js
 true
-```
+{% endhighlight %}
 
 Ha ! Cette fois on voit que sur ce commit le bug n'était pas encore présent parce que l'application retournait encore `true`. Du coup on signale à git que ce commit était "bon" et on continue à tester :
 
-```
+{% highlight bash %}
 > git bisect good
 Bisecting: 2 revisions left to test after this (roughly 2 steps)
 [5f64b5e75ef0be301e27b9bd160f2e6d9a3af659] Just a random commit
 
 > node app.js
 true
-```
+{% endhighlight %}
 
 Là aussi l'appli n'était pas encore cassée, continuons :
 
-```
+{% highlight bash %}
 > git bisect good
 Bisecting: 0 revisions left to test after this (roughly 1 step)
 [642a24f53eae8a51f1bd94a665ac34533c19c0b1] Just a random commit
 
 > node app.js
 false
-```
+{% endhighlight %}
 
 On a de nouveau le bug, signalons à git que le commit est mauvais :
 
-```
+{% highlight bash %}
 > git bisect bad
 Bisecting: 0 revisions left to test after this (roughly 0 steps)
 [c9382d3817df15c332a83a3fe3a8baec7c1f71fe] Commit introducing the bug
 
 > node app.js
 false
-```
+{% endhighlight %}
 
 Dernière étape :
 
-```
+{% highlight bash %}
 > git bisect bad
 c9382d3817df15c332a83a3fe3a8baec7c1f71fe is the first bad commit
 commit c9382d3817df15c332a83a3fe3a8baec7c1f71fe
@@ -143,14 +143,14 @@ Date:   Fri Sep 2 22:57:13 2016 +0200
     Commit introducing the bug
 
 :100644 100644 73f737c59c37ba81651b6187c1a42bf082050ef7 82e47dd52f32855e369243a0be37e7aeeb389399 M  true-generator.js
-```
+{% endhighlight %}
 
 Ca y est, on en est venu à bout. Lors de la toute dernière étape, git nous indique le SHA1 du tout premier commit ayant engendré le problème, à savoir *c9382d3817df15c332a83a3fe3a8baec7c1f71fe*.
 De plus git s'est positionné sur le premier commit ne contenant pas le problème.
 
 Il ne me reste plus qu'à analyser le commit ayant introduit le bug et à le corriger après être retourné sur le master (ce qui peut être fait avec la commande `git bisect reset`).
 
-```
+{% highlight bash %}
 > git log -p -1 c9382d3817df15c332a83a3fe3a8baec7c1f71fe
 commit c9382d3817df15c332a83a3fe3a8baec7c1f71fe
 Author: Loïc Giraudel <l.giraudel@gmail.com>
@@ -167,7 +167,7 @@ index 73f737c..82e47dd 100644
 \ No newline at end of file
 +module.exports = false;
 \ No newline at end of file
-```
+{% endhighlight %}
 
 On fix, on commit et sans s'en rendre compte on vient de sauver une bonne partie du territoire qui n'aura pas à subire une explosion nucléaire.
 
