@@ -185,7 +185,7 @@ Pas mal, non ?
 Bien sûr, si on *skip* trop souvent, à la fin git peut nous dire qu'il n'est pas capable de trouver le commit exact qui a engendré le bug et nous fournira plutôt le plus petit intervalle sur lequel le bug a été introduit. Ca encourage à faire des petits commits et à faire en sorte que la branche reste en permanence opérationnelle pour éviter ce genre de désagrément.
 
 - __Q) Vaut mieux faire tourner l'outil sur un petit intervalle, non ?__
-- R) Pas forcément vu qu'il s'agit d'une recherche dichotomique. Là il nous a fallu 7 étapes pour traiter un intervalle de 100 commits. Un intervalle de 1.000 commits ça n'est "que" 10 étapes et 100.000 commits ne représentent "que" 17 étapes. Bref ça va très vite, à condition d'avoir peu d'actions à effectuer entre chaque étape (tirer les éventuels changements dans les dépendances, builder, déployer pour pouvoir tester, etc). Après c'est sûr que ça ne sert à rien de parser tout votre historique si votre bug est survenu au cours de 2 dernières semaines.
+- R) Pas forcément vu qu'il s'agit d'une recherche dichotomique. Là il nous a fallu 7 étapes pour traiter un intervalle de 100 commits. Un intervalle de 1.000 commits ça n'est "que" 10 étapes et 100.000 commits ne représentent "que" 17 étapes. Bref ça va très vite, à condition d'avoir peu d'actions à effectuer entre chaque étape (tirer les éventuels changements dans les dépendances, builder, déployer pour pouvoir tester, etc). Après c'est sûr que ça ne sert à rien de parser tout votre historique si votre bug est survenu au cours des 2 dernières semaines.
 
 - __Q) En parlant de ça, c'est possible de donner un intervalle basé sur des dates ?__
 - R) Yep : `git bisect start HEAD@{one month ago} HEAD@{2016-01-01}`
