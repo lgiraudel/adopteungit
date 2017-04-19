@@ -1,27 +1,28 @@
 ---
 layout: post
-title:  "Comment vérifier l'existence d'une branche ou d'un tag sur un repository distant sans le cloner"
-lang: fr
+title: "Checking branch/tag existence without cloning repo"
+lang: en
 ref: verifier-existence-branch-tag-repo-distant-sans-cloner
 date:   2017-04-14 12:00:00 +0200
-categories: blog
+categories: blog en
+hidden: true
 disqus: true
 excerpt_separator: <!--more-->
-filename: 2017-04-14-verifier-existence-branch-tag-repo-distant-sans-cloner.markdown
+filename: 2017-04-14-checking-branch-tag-existence-without-cloning-repo.markdown
 ---
 
-Quand on commence à écrire des scripts pour automatiser le packaging et le déploiement d'une application, il peut arriver qu'on veuille vérifier, avant de cloner un énorme repository, que la branche ou le tag qu'on cherche à utiliser existe bien sur le repository.
+*Thanks to my [sweet little bro Hugo](https://twitter.com/hugogiraudel), my post "[Comment vérifier l'existence d'une branche ou d'un tag sur un repository distant sans le cloner]({% post_url 2017-04-14-verifier-existence-branch-tag-repo-distant-sans-cloner %})" is now translated in english! All kudos to him!*
 
-Une commande git permet justement de faire cela assez facilement.
+-----
+
+When writing scripts to automate packaging and deployment of applications, we might need to make sure that a tag or branch exists before needlessly cloning a huge repository.
 <!--more-->
 
-Et cette commande, c'est `ls-remote`.
+It turns out there is a git command to do just that. It’s `ls-remote`. It’s aptly named as it lists (`ls`) named references (branches, tags…) from a repository (`remote`).
 
-Elle porte d'ailleurs bien son nom, puisqu'elle permet de lister (ls) les références nommées (branches, tags, etc) d'un repository distant (remote).
+Let’s take a repository with a lot of branches and tags as an example: https://github.com/facebook/react.
 
-Prenons un repository ayant beaucoup de branches et de tags en guise d'exemple : [https://github.com/facebook/react](https://github.com/facebook/react)
-
-En utilisant la commande `ls-remote`, je vais obtenir ceci :
+Using `ls-remote`, I’ll get this:
 
 {% highlight text %}
 $ git ls-remote https://github.com/facebook/react
@@ -45,9 +46,7 @@ e24ec4a1b492a2d7543454afd7228139009924e4  refs/pull/8432/head
 ...
 {% endhighlight %}
 
-Super mais ça fait un poil beaucoup vu que visiblement ça a également sorti les pull-requests.
-
-Pour filtrer sur les branches, il suffit d'utiliser `--heads`, et pour les tags c'est `--tags`.
+Great. However it’s a wee bit too much since it also outputs pull-requests. To filter out everything but branches, we can use the `--heads` argument. For tags, it’s, well, `--tags`. 
 
 {% highlight text %}
 $ git ls-remote --heads https://github.com/facebook/react
@@ -63,7 +62,6 @@ f7c56d77dfbb1f7b8217f04e00ff71a26537c9a8  refs/heads/0.3-stable
 b1f66edf4e90527468987eafbaf50a410febdcc9  refs/heads/0.9-stable
 fb64f352923383197b2d48385488cdaed09b117e  refs/heads/15-dev
 ...
-
 $ git ls-remote --tags https://github.com/facebook/react.git
 dedf0c20da67872b5dff21a25cb9075e6019c12e  refs/tags/v0.10.0
 7f24943e5af5ee4b14ec002d45df315af94adb75  refs/tags/v0.10.0-rc1
@@ -80,7 +78,7 @@ edb8f7f4af980d2859582ed243b7f9dd6701a48e  refs/tags/v0.13.0
 ...
 {% endhighlight %}
 
-Du coup, si vous avez un script ou un job d'intégration continue qui prend en paramètre un tag ou une branche à déployer, il suffit de faire un grep sur la sortie de ls-remote pour vérifier que le paramètre d'entrée existe bien :
+Now, if we had a script or a CI job taking a branch or tag to deploy, it would be as simple as doing a `grep` on `ls-remote` output to make sure the input parameter exists:
 
 {% highlight text %}
 $ version=v15.0.0
@@ -88,22 +86,18 @@ $ git ls-remote --heads --tags https://github.com/facebook/react.git | grep -E "
 94a1ae06852d388f081e7d3ba87d3065dda7ee6a  refs/tags/v15.0.0
 {% endhighlight %}
 
-Dans un script bash, vous pouvez ensuite vérifier le résultat de la dernière commande pour savoir si la version fournie a bien été trouvée ou non, par exemple pour déclencher le clonage du repository ou bien pour afficher un message d'erreur à l'utilisateur.
+In a bash script, we could then check the result of the last command to check whether the given version exists. Then, we could either clone the repository or throw an error.
 
-Voici à quoi ressemblerait un tel script :
+Here is how it would look:
 
-{% highlight shell %}
+{% highlight text %}
 #!/bin/sh
-
 repo="https://github.com/facebook/react.git"
-
 if [[ "$#" -ne "1" ]]; then
   echo "Usage: $0 [version]"
 fi
-
 version=$1
 git ls-remote --heads --tags $repo | grep -E "refs/(heads|tags)/${version}$" >/dev/null
-
 if [[ "$?" -eq "0" ]]; then
   git clone $repo --branch $version --depth 1 --single-branch
 else
@@ -111,12 +105,11 @@ else
 fi
 {% endhighlight %}
 
-Et maintenant si j'essaye de l'utiliser avec un tag qui n'existe pas puis avec un tag qui existe :
+Now let’s use it with an unknown tag, then a correct one:
 
 {% highlight text %}
 $ ./clone_repo.sh bliblablou
 Unknown version bliblablou
-
 $ ./clone_repo.sh v15.0.0
 Cloning into 'react'...
 remote: Counting objects: 1118, done.
@@ -126,29 +119,26 @@ Receiving objects: 100% (1118/1118), 37.91 MiB | 2.66 MiB/s, done.
 Resolving deltas: 100% (58/58), done.
 Checking connectivity... done.
 Note: checking out 'd1c08f11d5e1ad03eb92a58b599562a010a68734'.
-
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
 state without impacting any branches by performing another checkout.
-
 If you want to create a new branch to retain commits you create, you may
 do so (now or later) by using -b with the checkout command again. Example:
-
   git checkout -b <new-branch-name>
-
 $ cd react
 $ git log -1 --decorate
 commit d1c08f11d5e1ad03eb92a58b599562a010a68734 (grafted, HEAD, tag: v15.0.0)
 Author: Paul O’Shannessy <paul@oshannessy.com>
 Date:   Thu Apr 7 12:07:50 2016 -0700
-
     v15.0.0
 {% endhighlight %}
 
-Bon, reconnaissons toutefois que mon script ne sert pas à grand chose vu que git, depuis la version 1.7.0, vérifie l'existence de la branche avant de faire un git clone :
+That being said, let’s remember that git checks that the branch exists before cloning since version 1.7.0.
 
 {% highlight text %}
 $ git clone https://github.com/facebook/react.git --branch bliblablou
 Cloning into 'react'...
 fatal: Remote branch bliblablou not found in upstream origin
 {% endhighlight %}
+
+But still, pretty nice.
