@@ -17,7 +17,7 @@ Une commande git permet justement de faire cela assez facilement.
 
 Et cette commande, c'est `ls-remote`.
 
-Elle porte d'ailleurs bien son nom, puisqu'elle permet de lister (ls) les références nommées (branches, tags, etc) d'un repository distant (remote).
+Elle porte d'ailleurs bien son nom, puisqu'elle permet de lister (`ls`) les références nommées (branches, tags, etc) d'un repository distant (`remote`).
 
 Prenons un repository ayant beaucoup de branches et de tags en guise d'exemple : [https://github.com/facebook/react](https://github.com/facebook/react)
 
