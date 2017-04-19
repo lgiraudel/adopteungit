@@ -1,0 +1,21 @@
+{% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+{% if page.ref && posts | size > 1 %}
+  <style>
+  .en:lang(en), .fr:lang(fr), .zh:lang(zh){
+      font-weight: bold;
+  }  
+  </style>
+  <ul>
+  {% for post in posts %}
+    {% case post.lang %}
+      {% when 'en' %}
+        {% assign label = 'English version' %}
+      {% when 'fr' %}
+        {% assign label = 'Version française' %}
+    {% endcase %}
+    <li>
+      <a href="{{ post.url }}" class="{{ post.lang }}">{{ label }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+{% endif %}
