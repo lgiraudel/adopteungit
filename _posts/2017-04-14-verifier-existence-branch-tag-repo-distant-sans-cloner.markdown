@@ -5,7 +5,7 @@ date:   2017-04-14 12:00:00 +0200
 categories: blog
 disqus: true
 excerpt_separator: <!--more-->
-filename: 2017-04-14-verifier-existence-branch-tag-repo-distant-sans-cloner
+filename: 2017-04-14-verifier-existence-branch-tag-repo-distant-sans-cloner.markdown
 ---
 
 Quand on commence à écrire des scripts pour automatiser le packaging et le déploiement d'une application, il peut arriver qu'on veuille vérifier, avant de cloner un énorme repository, que la branche ou le tag qu'on cherche à utiliser existe bien sur le repository.
