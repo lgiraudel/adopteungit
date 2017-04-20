@@ -9,7 +9,7 @@ paginate: 15
 baseurl: ""
 domain_name: 'http://adopteungit.fr'
 google_analytics: 'UA-82263007-1'
-gems: [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap, jekyll-twitter-plugin]
+gems: [jekyll-paginate, jekyll-seo-tag, jekyll-sitemap]
 lang: fr-FR
 
 # Details for the RSS feed generator
