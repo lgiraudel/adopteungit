@@ -1,5 +1,6 @@
 {% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
-{% if page.ref && posts | size > 1 %}
+
+{% if page.ref and posts.size > 1 %}
   <style>
   .en:lang(en), .fr:lang(fr), .zh:lang(zh){
       font-weight: bold;
