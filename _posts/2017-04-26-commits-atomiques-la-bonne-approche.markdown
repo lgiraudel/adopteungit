@@ -3,27 +3,24 @@ layout: post
 title:  "Commits atomiques - la bonne approche"
 lang: fr
 ref: commits-atomiques-la-bonne-approche
-date:   2017-04-24 10:00:00 +0200
-categories: methodologie
+date:   2017-04-26 12:00:00 +0200
+categories: en methodology
 disqus: true
 excerpt_separator: <!--more-->
-filename: 2017-04-24-commits-atomiques-la-bonne-approche.markdown
-hidden: true
+filename: 2017-04-26-commits-atomiques-la-bonne-approche.markdown
 ---
-Soyons clairs, cet article ne parlera pas de fusées ou de centrales nucléaires.
-Non, par atomiques j'entends "le plus petit possible".
-<!--more-->
-
-Maintenant que ce point a été clarifié, abordons le vif du sujet.
-
 L'une des principales difficultés dans nos métiers est, à mon humble avis, la difficulté à découper notre travail en petites unités. Cette difficulté s'applique aussi bien au niveau architectural (il est bien plus facile de faire un gros projet monolithique plutôt que plein de petits projets unitaires) qu'au niveau du code que nous produisons tous les jours dans nos commits.
 
 En un mot comme en cent : **il est difficile de faire de petits commits**.
+<!--more-->
 
-C'est difficile de faire des petits commits parce qu'il est facile de ne pas en faire. Ca parait stupide dit comme ça, mais il est bien plus simple, à la fin d'un développement, de faire un gros commit plutôt que de s'amuser à tenter d'en faire plein de petits. C'est d'autant plus difficile que la plus-value des petits commits n'est pas visible sur le moment. C'est un peu comme les tests automatisés : sur le moment on se dit que ça ne sert à rien, on va relire le code 3 fois et bien vérifier la fonctionnalité pour être certain de ne pas envoyer un bug et ça ira bien. Et le jour où ça pète en prod à cause d'un changement plus ou moins anodin on se dit que s'il y avait eu des tests automatisés, le changement anodin aurait fait passer au rouge un test et le problème aurait été fixé avant même d'atteindre la prod.
-Les petits commits c'est pareil : c'est chiant à faire, ça parait inutile mais le jour où ça pète en prod on est content d'avoir fait l'effort.
+C'est difficile de faire des petits commits parce qu'il est facile de ne pas en faire. Ca parait stupide dit comme ça, mais il est bien plus simple, à la fin d'un développement, de faire un gros commit plutôt que de s'amuser à tenter d'en faire plein de petits. C'est d'autant plus difficile que la plus-value des petits commits n'est pas visible sur le moment. 
 
-On peut se demander quel est le rapport entre la taille des commits et un bug survenu en prod mais ce rapport il est tout simple : plus il est difficile de trouver l'origine d'un bug et la manière de le fixer et plus il coutera cher en temps humain pour le fixer. **Réduire le cout d'un bug consiste donc à le repérer au plus tôt** (idéalement avant qu'il atteigne la production) et ça c'est le rôle des tests, mais ça consiste également à réduire le temps qu'il faut à un ingénieur payé une fortune pour le fixer.
+C'est un peu comme les tests automatisés : sur le moment on se dit que ça ne sert à rien, qu'on va relire le code trois fois et bien vérifier la fonctionnalité pour être certain ou certaine de ne pas envoyer un bug et ça ira bien. Et le jour où ça pète en prod à cause d'un changement plus ou moins anodin, on se dit que s'il y avait eu des tests automatisés, le changement anodin aurait fait passer au rouge un test et le problème aurait été fixé avant même d'atteindre la prod.
+
+Les petits commits c'est pareil : c'est parfois chiant à faire, ça parait inutile mais le jour où ça pète en prod on est bien content/e d'avoir fait l'effort d'en écrire.
+
+On peut se demander quel est le rapport entre la taille des commits et un bug survenu en prod mais ce rapport est tout simple : plus il est difficile de trouver l'origine d'un bug et la manière de le fixer et plus il coûtera cher en temps humain pour le fixer. **Réduire le coût d'un bug consiste donc à le repérer au plus tôt** (idéalement avant qu'il n'atteigne la production) et ça c'est le rôle des tests, mais ça consiste également à réduire le temps qu'il faut à l'équipe de développement pour le fixer.
 
 ## La traque des bugs
 
@@ -36,7 +33,7 @@ N'hésitez pas à aller lire mon [article sur git bisect]({% post_url 2016-09-04
 ## Les codes reviews
 
 Avoir des petits commits a un autre intérêt, plus immédiat cette fois : il facilite la relecture.
-Sans même parler du monde open-source qui en est très friand, faire des code reviews avant de merger un développement permet d'améliorer le code :
+Sans même parler du monde open-source qui en est très friand, faire des code reviews avant de merger un développement apporte de nombreux avantages :
 
 * ça réduit le nombre d'erreurs bénignes,
 * ça encourage la consistance,
@@ -49,7 +46,7 @@ Par contre c'est difficile à faire parce qu'un code trop long qui fait trop de 
 
 Quand vous codez une fonctionnalité de A à Z qui traverse toutes les couches d'une application MVC vous touchez déjà à énormément de fichiers : l'IHM (souvent séparée en plusieurs fichiers de templates et de styles), le controlleur, le routing, la couche applicative, la DAO ou les données. Ajoutez à ça les tests unitaires qui accompagnent chacune de ces parties, les tests d'intégration, etc. La Pull Request qui contiendra cette fonctionnalité sera donc déjà suffisamment velue pour éviter de la polluer avec des corrections de checkstyle, des p'tits refactos "en passant", de l'amélioration de la couverture de tests sur des parties peu ou pas testées, de la PHPDoc / JavaDoc / WhatEverDoc qui manquait sur certaines fonctions "en passant aussi" et ainsi de suite.
 
-Même en faisant ces modifications uniquement sur les fichiers modifiés par votre fonctionnalité, leur accumulation rendra la Pull Request indigeste aux yeux de vos relecteurs. Dans le meilleur cas, les relecteurs liront avec attention les premières lignes de la Pull Request mais finiront par bacler au fur et à mesure de la lecture. Dans le pire des cas, le relecteur ne prendra pas la peine de relire votre Pull Request faute d'avoir suffisamment de temps pour le faire sérieusement et dans son intégralité, préférant la laisser à ceux ayant le temps pour ça (autrement dit personne).
+Même en faisant ces modifications uniquement sur les fichiers modifiés par votre fonctionnalité, leur accumulation rendra la Pull Request indigeste aux yeux de vos relecteurs et relectrices. Dans le meilleur cas, ils liront avec attention les premières lignes de la Pull Request mais finiront par bacler au fur et à mesure de la lecture. Dans le pire des cas, la personne ne prendra pas la peine de relire votre Pull Request faute d'avoir suffisamment de temps pour le faire sérieusement et dans son intégralité, préférant la laisser à celles et ceux ayant le temps pour ça (autrement dit personne).
 
 <section class="post-content">
   <div class="jekyll-twitter-plugin">
@@ -69,17 +66,17 @@ Même en faisant ces modifications uniquement sur les fichiers modifiés par vot
 </section>
 
 
-Je bla-blate, je bla-blate, mais je n'ai toujours pas attaqué la partie technique de cet article (oui, il n'y a pas que des longs monologues), mais avant d'expliquer comment faire les choses, il vaut mieux faire comprendre l'intérêt qu'il y a derrière, en particulier pour quelque chose qui semble être une perte de temps pour la plupart des gens.
+Je bla-blate, je bla-blate, mais je n'ai toujours pas attaqué la partie technique de cet article (oui, il n'y a pas que de longs monologues), mais avant d'expliquer comment faire les choses, il vaut mieux faire comprendre l'intérêt qu'il y a derrière, en particulier pour quelque chose qui semble être une perte de temps pour la plupart des gens.
 
 Ok, parlons technique maintenant.
 
 ## Alors, comment qu'on fait ?
 
-Il existe une pléthore de techniques pour mieux organiser ses commits avec git. La première technique ne repose même pas sur la connaissance d'une commande magique de git : il suffit de rester concentré sur sa tache et de ne pas se disperser dans les petits changements à droite à gauche.
+Il existe une pléthore de techniques pour mieux organiser ses commits avec Git. La première technique ne repose même pas sur la connaissance d'une commande magique de Git : il suffit de rester concentré/e sur sa tâche et de ne pas se disperser dans les petits changements à droite à gauche.
 
-Bon, disons le clairement, c'est une technique pourrie parce que quand on peut améliorer le code, il ne faut jamais s'en priver. Donc à moins d'aimer recouvrir votre bureau de post-its "enlever l'espace superflu à la ligne 17 du fichier Toto.class.php" que vous dépilez une fois que vous avez fini votre fonctionnalité, c'est pas une bonne méthode.
+Bon, disons le clairement, c'est une technique pourrie parce que lorsqu'on peut améliorer le code, il ne faut jamais s'en priver. Donc à moins d'aimer recouvrir votre bureau de post-its "enlever l'espace superflu à la ligne 17 du fichier Toto.class.php" que vous dépilez une fois que vous avez fini votre fonctionnalité, ça n'est vraiment pas une bonne méthode.
 
-Non, une bonne méthode doit permettre de laisser le développeur travailler comme il l'entend et c'est seulement au moment de commiter qu'il devra réorganiser tous ses changements pour les rassembler en commits.
+Non, une bonne méthode doit laisser le développeur ou la développeuse travailler comme il ou elle l'entend et c'est seulement au moment de commiter qu'il ou elle devra réorganiser tous ses changements pour les rassembler en commits.
 
 ### Plein de chtits commits
 
@@ -119,7 +116,7 @@ protected function retrieveList($listId, $page = 1)
 
 Vous rajoutez votre bout de code dans ce fichier mais en reparcourant le fichier, vous vous rendez compte que dans la PHPDoc de `retrieveList()` le paramètre `$listId` n'est pas typé. Du coup, vous rajoutez le type du paramètre : c'est bénin, ça mange pas de pain et ça facilitera l'utilisation de cette méthode dans l'IDE donc pourquoi s'en priver.
 
-En bon Atomic Commiter, vous allez vouloir commiter ce petit ajout dans un commit séparé mais vous ne voulez pas ajouter votre nouvelle fonction avec ce commit (en plus la fonctionnalité n'est même pas finie). En utilisant la commande `git add -p path/to/MyFile.php`, Git va découper les changements en plusieurs blocs, vous permettant de choisir, pour chaque bloc, si vous voulez l'ajouter ou ne pas l'ajouter au commit.
+En bon Atomic Commiter, vous allez vouloir commiter ce petit ajout dans un commit séparé mais vous ne voulez pas ajouter votre nouvelle fonction avec ce commit (en plus la fonctionnalité n'est même pas finie). En utilisant la commande `git add -p path/to/MyFile.php`, Git va découper les changements en plusieurs blocs, vous permettant de choisir, pour chaque bloc, si vous voulez l'ajouter ou non au commit.
 
 {% highlight text %}
 git add --patch path/to/MyFile.php
@@ -193,20 +190,20 @@ Le bémol en faisant ça à la fin de votre développement, c'est la relecture d
 
 ![Guider vos utilisateurs vers les commits importants](/assets/images/posts/commits-atomiques-la-bonne-approche/guider-utilisateurs.png) 
 
-Un autre inconvénient quand on effectue ce découpage à la fin, c'est le fait que cela prend pas mal de temps : en voyant le diff, vous allez commencer un commit dédié à un petit truc (par exemple le passage d'une chaîne sous forme de constante) qui va vous obliger à scruter à la loupe tout le contenu de votre diff pour ajouter à ce commit tous les changements concernés et uniquement ceux-là. Quand vous aurez fini, vous allez recommencer avec un autre commit atomique et de nouveau relire tout votre diff (du moins tout ce qu'il reste) pour de nouveau ajouter tout ce qui concerne ce second changement. Et ainsi de suite. Du coup vous allez relire votre diff un paquet de fois.
+Un autre inconvénient quand on effectue ce découpage à la fin, c'est le fait que cela prend pas mal de temps : en voyant le diff, vous allez commencer un commit dédié à un petit truc (par exemple le passage d'une chaîne sous forme de constante) qui va vous obliger à scruter à la loupe tout le contenu de votre diff pour ajouter à ce commit toutes les éditions qui concernent ce changement et uniquement celles-là. Quand vous aurez fini, vous allez recommencer avec un autre commit atomique et de nouveau relire tout votre diff (du moins tout ce qu'il reste) pour de nouveau ajouter tout ce qui concerne ce second changement. Et ainsi de suite. Du coup vous allez relire votre diff un paquet de fois.
 
 ### Le rebase interactif
 
 Une autre technique qui marche super bien, c'est via l'utilisation du rebase interactif.
 Le rebase interactif permet de changer l'ordre des commits, de les éditer et de les fusionner ensemble afin de les réorganiser à loisir.
 
-Cela signifie que le développeur, une fois son travail terminé ou même au fil de son développement, va pouvoir créer plein de petits commits contenant les petites choses qu'il aura fixées à droite à gauche et qui ne sont pas directement liées à son travail.
+Cela signifie que le développeur ou la développeuse, une fois son travail terminé ou même au fil de son développement, va pouvoir créer plein de petits commits contenant les petites choses qu'il ou elle aura fixées à droite à gauche et qui ne sont pas directement liées à son travail.
 
-Une fois qu'il sera prêt à pusher sa Pull Request, le rebase interactif lui permettra de fusionner les commits pouvant être contenus dans un unique commit ou éventuellement réorganiser ses commits, par exemple pour faire une première Pull Request contenant toutes les fioritures afin de la merger rapidement et avoir ensuite une Pull Request ne montrant que la vraie fonctionnalité attendue.
+Une fois qu'il ou elle sera prêt à pusher sa Pull Request, le rebase interactif lui permettra de fusionner les commits pouvant être contenus dans un unique commit ou éventuellement réorganiser ses commits, par exemple pour faire une première Pull Request contenant toutes les fioritures afin de la merger rapidement et avoir ensuite une seconde Pull Request ne montrant que la vraie fonctionnalité attendue.
 
 Prenons un exemple.
 
-Je suis en train de travailler sur la story *GRE-1234*, dont le but est d'autoriser un utilisateur à éditer ses réponse dans un sujet de forum.
+Je suis en train de travailler sur la tâche *GRE-1234*, dont le but est d'autoriser un utilisateur ou une utilisatrice à éditer ses réponse dans un sujet de forum.
 Au cours de mon travail, je corrige tous les petits trucs que je vois à droite à gauche et je commit fréquemment ces petits trucs. Une fois content de ma fonctionnalité, je me retrouve avec 15 commits :
 
 {% highlight text %}
@@ -228,13 +225,13 @@ e7e0f59 phpdoc
 ab00199 Missing description in Behat scenario
 {% endhighlight %}
 
-On voit que dans ces 15 commits, certains trucs sont très liés et pourraient être regroupés. Ma fonctionnalité en elle-même n'est répartie que dans 2 commits préfixés par l'identifiant de ma story. A moins d'avoir une bonne raison de séparer la fonctionnalité en deux, je devrais fusionner ces 2 commits en un seul.
+On voit que dans ces 15 commits, certains sont très similaires et pourraient être regroupés. Ma fonctionnalité en elle-même n'est répartie que dans deux commits préfixés par l'identifiant de ma tâche. A moins d'avoir une bonne raison de séparer la fonctionnalité en deux, je devrais fusionner ces deux commits en un seul.
 
 Bref, essayons de réorganiser tout ça.
 
 La commande `git rebase -i HEAD~15` va me permettre de peaufiner facilement le rebase des 15 derniers commits.
 
-En lançant cette commande, cela va m'ouvrir l'éditeur de texte dont le contenu sera la liste de mes 15 commits précédés par `pick suivi d'instructions en commentaire pour me guider. Attention, l'ordre des commits et l'ordre chronologique : mon plus vieux commit est le premier, le plus récent est le dernier. C'est l'inverse de l'affichage du `git log` avec lequel on est plus familier.
+En lançant cette commande, cela va m'ouvrir l'éditeur de texte dont le contenu sera la liste de mes 15 commits précédés par `pick` suivi d'instructions en commentaire pour me guider. Attention, l'ordre des commits est l'ordre chronologique : mon plus vieux commit est le premier, le plus récent est le dernier. C'est l'inverse de l'affichage du `git log` avec lequel on est plus familier.
 
 {% highlight text %}
 pick ab00199 Missing description in Behat scenario
@@ -291,7 +288,7 @@ pick 7a9d433 [GRE-1234] - Don't allow answer edition on closed thread
 J'ai rassemblé les commits similaires et j'ai mis ma fonctionnalité en tout dernier.
 
 Maintenant, je peux choisir de merger certains commits entre eux. Pour ça, il suffit que je remplace le libellé `pick` en début des lignes qui m'intéressent par `squash` (ou `s`).
-Par exemple les quatre premiers commits sont similaires : ils rajoutent des descriptions manquantes dans des scénarios behat. Je peux donc me contenter de garder le premier des quatre commits tel quel et demander à ce que les trois suivants soient mergés dans le premier :
+Par exemple les quatre premiers commits sont similaires : ils rajoutent des descriptions manquantes dans des scénarios Behat. Je peux donc me contenter de garder le premier des quatre commits tel quel et demander à ce que les trois suivants soient mergés dans le premier :
 
 {% highlight text %}
 pick ab00199 Missing description in Behat scenario
@@ -374,7 +371,7 @@ $ git log -7 --oneline
 86855ae Missing description in Behat scenario
 {% endhighlight %}
 
-A ce stade, je peux envoyer ça sous forme de PR en précisant à mes collègues de se cantonner au commit contenant la fonctionnalité et à ne pas s'embêter avec les commits précédents.
+A ce stade, je peux envoyer ça sous forme de Pull Request en précisant à mes collègues de se cantonner au commit contenant la fonctionnalité et à ne pas s'embêter avec les commits précédents.
 
 Je peux aussi créer une branche sur l'avant dernier commit (`git checkout -b small-fixes HEAD~1`) pour envoyer tous ces petits commits sans grand intérêt dans une Pull Request qui sera rapidement mergée (voire que je mergerai moi-même), pour ensuite faire une Pull Request ne contenant que le commit de ma fonctionnalité.
 
@@ -477,6 +474,7 @@ fa1188f Missing description in Behat scenario
 {% endhighlight %}
 
 L'ordre des commits est différent de celui qu'on a obtenu sans l'option `--autosquash` mais si cela pose problème il est toujours possible de refaire un rebase intéractif sur les commits pour les réordonner (`git rebase -i HEAD~7`).
+
 Plutôt que de commiter avec `git commit --fixup [SHA1]`, je peux aussi utiliser `git commit --squash [SHA1]` qui va fonctionner de la même manière. La seule différence c'est la possibilité de remodifier les commentaires des commits à la fin du rebase pour les commits ayant été créés avec `--squash`.
 
 ## Le mot de la fin
