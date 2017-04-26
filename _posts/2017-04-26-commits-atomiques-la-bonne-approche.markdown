@@ -4,7 +4,7 @@ title:  "Commits atomiques - la bonne approche"
 lang: fr
 ref: commits-atomiques-la-bonne-approche
 date:   2017-04-26 12:00:00 +0200
-categories: en methodology
+categories: methodologie
 disqus: true
 excerpt_separator: <!--more-->
 filename: 2017-04-26-commits-atomiques-la-bonne-approche.markdown
