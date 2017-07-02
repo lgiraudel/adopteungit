@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang || site.lang }}">
+<html lang="{{ page.lang | default: site.lang }}">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -34,7 +34,11 @@
   <meta name="msapplication-wide310x150logo" content="{{ site.baseurl }}/assets/images/favicon/mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="{{ site.baseurl }}/assets/images/favicon/mstile-310x310.png" />
 
-  {% seo %}
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+  {% feed_meta %}
 </head>
 <body class="{% if page.post_class %}{{page.post_class}}{% else %}home-template{% endif %}">
 

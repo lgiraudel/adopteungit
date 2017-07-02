@@ -4,8 +4,12 @@
 ---
 
 /* We need to add display:inline in order to align the '>>' of the 'read more' link */
-.post-excerpt p {
+.post-excerpt p:last-of-type {
 	display:inline;
+}
+
+.post-excerpt hr {
+  margin: 1.2em 0;
 }
 
 // Import partials from `sass_dir` (defaults to `_sass`)

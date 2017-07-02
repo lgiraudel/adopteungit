@@ -24,4 +24,4 @@ gem "github-pages", group: :jekyll_plugins
 # end
 gem 'jekyll-paginate'
 #gem 'pygments.rb'
-gem 'jekyll-seo-tag'
+gem 'jekyll-feed'
