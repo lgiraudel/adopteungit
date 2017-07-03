@@ -1,0 +1,17 @@
+hugo-giraudel:
+  name: Hugo Giraudel
+  avatar_url: /assets/images/authors/hugo-giraudel.jpg
+  twitter: HugoGiraudel
+
+loic-giraudel:
+  name: Loïc Giraudel
+  avatar_url: /assets/images/authors/loic-giraudel.jpg
+  twitter: l_giraudel
+
+en:
+  hugo-giraudel: Accessibility advocate, author, speaker.
+  loic-giraudel: Web developer and new tech enthusiast leaving in his french montains near Grenoble.
+
+fr:
+  hugo-giraudel: Défenseur de l'accessibilité, auteur, speaker.
+  loic-giraudel: Développeur web passionné de nouvelles technologies vivant reclus dans ses montagnes Grenobloises.

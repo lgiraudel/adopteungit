@@ -1,0 +1,22 @@
+{% assign author = site.data.authors[include.author] %}
+{% assign lang = page.lang or site.lang %}
+{% assign i18n = site.data.i18n[lang] %}
+{% assign description = site.data.authors[lang][include.author] %}
+
+<figure class="author-image">
+    <a class="img" href="{{ site.baseurl }}/" style="background-image: url({{ site.baseurl }}{{ author.avatar_url }})">
+    <span class="hidden">{{i18n['author-pic-b']}}{{author.name}}{{i18n['author-pic-a']}}</span></a>
+</figure>
+<section class="author">
+    <!-- Author Name -->
+        <h4>
+          {{ author.name }}
+          {% if author.twitter %}
+      <a href="https://twitter.com/{{ author.twitter }}" target="_blank" class="icon-twitter"></a>      
+          {% endif %}
+        </h4>
+    <!-- Author Bio -->
+    <p>
+        {{ description }}
+    </p>
+</section>

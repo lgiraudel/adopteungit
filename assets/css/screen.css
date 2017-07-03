@@ -996,10 +996,6 @@ body:not(.post-template) .post-title {
     text-decoration: none;
 }
 
-.post-footer h4 a:hover {
-    text-decoration: underline;
-}
-
 /* Drop the share links in the space to the right.
    Doing it like this means it's easier for the author bio
    to be flexible at smaller screen sizes while the share
@@ -1011,7 +1007,13 @@ body:not(.post-template) .post-title {
     width: 160px;
 }
 
-.post-footer .share a {
+.post-footer .translator {
+    margin-top:  3em;
+}
+
+.post-footer .share a,
+.post-footer .author a,
+.post-footer .translator a {
     font-size: 1.8rem;
     display: inline-block;
     margin: 1rem 1.6rem 1.6rem 0;
@@ -1019,7 +1021,9 @@ body:not(.post-template) .post-title {
     text-decoration: none;
 }
 
-.post-footer .share a:hover {
+.post-footer .share a:hover,
+.post-footer .author a:hover
+.post-footer .translator a:hover {
     color: #50585D;
 }
 

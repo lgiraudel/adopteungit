@@ -5,9 +5,12 @@ archive: false
 post_class: post-template
 ---
 
+{% assign lang = page.lang or site.lang %}
+{% assign i18n = site.data.i18n[lang] %}
+
 <header class="main-header post-head {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
     <nav class="main-nav {% if page.cover %} overlay {% endif %} clearfix">
-        <a class="back-button icon-arrow-left" href="{{ site.baseurl }}/">Accueil</a>
+        <a class="back-button icon-arrow-left" href="{{ site.baseurl }}/">{{ i18n['home'] }}</a>
         <a class="subscribe-button icon-feed" href="{{ site.baseurl }}/feed.xml">RSS</a>
         <h1 class="page-title">
             <a href="{{ site.baseurl }}/">
@@ -28,7 +31,7 @@ post_class: post-template
                     <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date: "%d/%m/%Y" }}</time>
 
                     {% if page.categories.size > 0 %}
-                        {{ page.categories | join: ', ' | prepend: 'dans ' }}
+                        {{ page.categories | join: ', ' | prepend: i18n['in'] }}
                     {% endif %}
                 </div>
                 {% if page.filename %}
@@ -75,19 +78,13 @@ post_class: post-template
 
         <footer class="post-footer">
             <!-- If we want to display author's name and bio -->
-            {% if site.author %}
-                <figure class="author-image">
-                    <a class="img" href="{{ site.baseurl }}/" style="background-image: url({{ site.baseurl }}/assets/images/347023c.jpg)">
-                    <span class="hidden">{{site.author}}'s Picture</span></a>
-                </figure>
-                <section class="author">
-                    <!-- Author Name -->
-                    <h4> {{ site.author }} </h4>
-                    <!-- Author Bio -->
-                    <p>
-                        {{ site.author_description }}
-                    </p>
-                </section>
+            {% if page.author %}
+                {% include author.html author = page.author %}
+            {% else %}
+                {% include author.html author = 'loic-giraudel' %}
+            {% endif %}
+            {% if page.translator %}
+                {% include translator.html translator = page.translator %}
             {% endif %}
 
             <!-- Share links section -->
