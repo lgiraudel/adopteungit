@@ -197,7 +197,7 @@ Other potential downside with committing everything at the end of a long working
 
 Another approach that has proven to be successful is abusing interactive rebase. This git feature makes it possible to reorder commits, edit them and even merge them.
 
-It means we can perform a lot of small commits that are not directly related to the feature we are currently working one. Once ready to submit the final pull-request for review, we can reorder and squash small commits together to reorganise the git history. For instance, we could create a first pull-request containing all little edits, and then another for the actual feature.
+It means we can perform a lot of small commits that are not directly related to the feature we are currently working on. Once ready to submit the final pull-request for review, we can reorder and squash small commits together to reorganise the git history. For instance, we could create a first pull-request containing all little edits, and then another for the actual feature.
 
 Let’s illustrate with an example.
 
