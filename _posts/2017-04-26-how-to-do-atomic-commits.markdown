@@ -91,7 +91,7 @@ Reindenting some broken tabs? Commit it on its own. New tests for a function? Co
 
 The thing that matters is that the critical commits for a feature, the ones which will need to be actively reviewed, are free from all this visual distraction.
 
-The tricky part with this approach is to resist the temptation of doing `git add -A` to ship all modified files in the commit. This is where knowing how to use `git app -p` (or `--patch`) helps, so we can divide multiple updates within a single file to commit them separately.
+The tricky part with this approach is to resist the temptation of doing `git add -A` to ship all modified files in the commit. This is where knowing how to use `git add -p` (or `--patch`) helps, so we can divide multiple updates within a single file to commit them separately.
 
 Let’s say we have the following PHP file:
 
