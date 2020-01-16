@@ -12,7 +12,7 @@ hidden: true
 author: hugo-giraudel
 ---
 
-*An article written by my awesome bro [Hugo](https://twitter.com/hugogiraudel), to help a friend of him learning the basics of Git. Huge thanks to him for this useful post!*
+*An article written by my awesome sibling [Hugo](https://twitter.com/hugogiraudel), to help a friend of them learning the basics of Git. Huge thanks to them for this useful post!*
 
 ------
 
