@@ -12,7 +12,7 @@ hidden: true
 translator: hugo-giraudel
 ---
 
-*One more time, my bro [Hugo](https://twitter.com/hugogiraudel), helped me by translating my post "[Commits atomiques - la bonne approche]({% post_url 2017-04-26-commits-atomiques-la-bonne-approche %})". Many thanks to him for his translation and review!*
+*One more time, my bro [Kitty](https://twitter.com/KittyGiraudel), helped me by translating my post "[Commits atomiques - la bonne approche]({% post_url 2017-04-26-commits-atomiques-la-bonne-approche %})". Many thanks to them for their translation and review!*
 
 -----
 
