@@ -12,7 +12,7 @@ author: hugo-giraudel
 translator: loic-giraudel
 ---
 
-*Cet article est la traduction d'un article écrit par mon merveilleux petit frère [Hugo](https://twitter.com/hugogiraudel), pour aider une de ses amies à prendre en main git. Un très grand merci à lui de nous faire profiter de cet article très utile !*
+*Cet article est la traduction d'un article écrit par mon merveilleux petit frère [Kitty](https://twitter.com/KittyGiraudel), pour aider une de ses amies à prendre en main git. Je lui suis très reconnaissant de nous faire profiter de cet article très utile !*
 
 -----
 
