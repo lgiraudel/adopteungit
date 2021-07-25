@@ -9,10 +9,10 @@ disqus: true
 excerpt_separator: <!--more-->
 filename: 2017-07-02-git-practical-very-basics.markdown
 hidden: true
-author: hugo-giraudel
+author: kitty-giraudel
 ---
 
-*An article written by my awesome sibling [Hugo](https://twitter.com/hugogiraudel), to help a friend of them learning the basics of Git. Huge thanks to them for this useful post!*
+*An article written by my awesome sibling [Kitty](https://twitter.com/kittygiraudel), to help a friend of them learning the basics of Git. Huge thanks to them for this useful post!*
 
 ------
 

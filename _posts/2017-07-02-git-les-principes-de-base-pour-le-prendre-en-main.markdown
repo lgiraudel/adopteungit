@@ -8,11 +8,11 @@ categories: methodologie
 disqus: true
 excerpt_separator: <!--more-->
 filename: 2017-07-02-git-les-principes-de-base-pour-le-prendre-en-main.markdown
-author: hugo-giraudel
+author: kitty-giraudel
 translator: loic-giraudel
 ---
 
-*Cet article est la traduction d'un article écrit par mon merveilleux petit frère [Kitty](https://twitter.com/KittyGiraudel), pour aider une de ses amies à prendre en main git. Je lui suis très reconnaissant de nous faire profiter de cet article très utile !*
+*Cet article est la traduction d'un article écrit par [Kitty](https://twitter.com/KittyGiraudel), pour aider une de ses amies à prendre en main git. Je lui suis très reconnaissant de nous faire profiter de cet article très utile !*
 
 -----
 
