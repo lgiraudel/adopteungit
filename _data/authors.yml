@@ -1,7 +1,7 @@
-hugo-giraudel:
-  name: Hugo Giraudel
-  avatar_url: /assets/images/authors/hugo-giraudel.jpg
-  twitter: HugoGiraudel
+kitty-giraudel:
+  name: Kitty Giraudel
+  avatar_url: /assets/images/authors/kitty-giraudel.png
+  twitter: KittyGiraudel
 
 loic-giraudel:
   name: Loïc Giraudel
@@ -9,9 +9,9 @@ loic-giraudel:
   twitter: l_giraudel
 
 en:
-  hugo-giraudel: Accessibility advocate, author, speaker.
+  kitty-giraudel: Accessibility & diversity advocate, frontend developer, author.
   loic-giraudel: Web developer and new tech enthusiast leaving in his french montains near Grenoble.
 
 fr:
-  hugo-giraudel: Défenseur de l'accessibilité, auteur, speaker.
+  kitty-giraudel: Militant·e en accessibilité et diversité, développeur·se frontend, auteur·e.
   loic-giraudel: Développeur web passionné de nouvelles technologies vivant reclus dans ses montagnes Grenobloises.

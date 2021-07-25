@@ -9,10 +9,10 @@ disqus: true
 excerpt_separator: <!--more-->
 filename: 2017-04-26-how-to-do-atomic-commits.markdown
 hidden: true
-translator: hugo-giraudel
+translator: kitty-giraudel
 ---
 
-*One more time, my bro [Kitty](https://twitter.com/KittyGiraudel), helped me by translating my post "[Commits atomiques - la bonne approche]({% post_url 2017-04-26-commits-atomiques-la-bonne-approche %})". Many thanks to them for their translation and review!*
+*One more time, my sibling [Kitty](https://twitter.com/KittyGiraudel), helped me by translating my post "[Commits atomiques - la bonne approche]({% post_url 2017-04-26-commits-atomiques-la-bonne-approche %})". Many thanks to them for their translation and review!*
 
 -----
 
@@ -35,7 +35,7 @@ Authoring small commits help finding the origin of a bug, the context in which i
 
 This is getting even faster with Git when performing dichotomous search in a large range of commits with `git bisect`. For instance, on a huge project with over 31,000 commits (spread across 6 years), a good ol’ `git bisect` could make it possible to find the origin of a bug in about 15 operations.
 
-If you’d like to learn more about tracking down bugs with `git bisect`, be sure to read my articles about it [in French](http://adopteungit.fr/commande/bisect/2016/09/04/la-chasse-aux-bugs-avec-git-bisect.html) and [in English](http://hugogiraudel.com/2014/03/24/git-tips-and-tricks-part-3/). :)
+If you’d like to learn more about tracking down bugs with `git bisect`, be sure to read my articles about it [in French](http://adopteungit.fr/commande/bisect/2016/09/04/la-chasse-aux-bugs-avec-git-bisect.html) and [in English](https://kittygiraudel.com/2014/03/24/git-tips-and-tricks-part-3/). :)
 
 ## Code reviews
 

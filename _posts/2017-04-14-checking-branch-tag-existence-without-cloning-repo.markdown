@@ -9,10 +9,10 @@ hidden: true
 disqus: true
 excerpt_separator: <!--more-->
 filename: 2017-04-14-checking-branch-tag-existence-without-cloning-repo.markdown
-translator: hugo-giraudel
+translator: kitty-giraudel
 ---
 
-*Thanks to my [sweet little bro Kitty](https://twitter.com/KittyGiraudel), my post "[Comment vérifier l'existence d'une branche ou d'un tag sur un repository distant sans le cloner]({% post_url 2017-04-14-verifier-existence-branch-tag-repo-distant-sans-cloner %})" is now translated in english! All kudos to them!*
+*Thanks to my [sweet little sibling Kitty](https://twitter.com/KittyGiraudel), my post "[Comment vérifier l'existence d'une branche ou d'un tag sur un repository distant sans le cloner]({% post_url 2017-04-14-verifier-existence-branch-tag-repo-distant-sans-cloner %})" is now translated in english! All kudos to them!*
 
 -----
 
